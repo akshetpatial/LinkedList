@@ -148,6 +148,9 @@ public class ll {
                 temp=temp.next;
                 count++;
             }
+            // or we do by this way also
+            //temp.next=temp.next.next;
+
             Node rmv = temp.next;
             temp.next= rmv.next;
             size-=1;
