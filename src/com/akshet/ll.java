@@ -90,7 +90,7 @@ public class ll {
     public void display(){
         Node temp = head;
         if(temp==null)
-            System.out.println(" null ");
+            System.out.println("null ");
         else {
             while (temp != null) {
                 System.out.print(temp.value + " -> ");
@@ -130,6 +130,28 @@ public class ll {
         size+=1;
         temp.next=newNode;
         newNode.next=after;
+    }
+
+    public void deleteAtIndex(int index) {
+        if(index==0)
+            deleteBegin();
+       else if(index==size()-1)
+            deleteEnd();
+       else if(head ==null || tail ==null)
+            System.out.println("Not Possible, the List is empty");
+        else if(index>=size())
+            System.out.println("Not Possible as Index was not found!");
+        else{
+            int count =1;
+            Node temp = head;
+            while(count<index){
+                temp=temp.next;
+                count++;
+            }
+            Node rmv = temp.next;
+            temp.next= rmv.next;
+            size-=1;
+        }
     }
 
 

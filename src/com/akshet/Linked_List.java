@@ -79,6 +79,7 @@ public class Linked_List {
         System.out.println("Options");
         System.out.println("Press 1 to delete at the beginning! ");
         System.out.println("Press 2 to delete at the end!");
+        System.out.println("Press 3 to delete at the given index!");
         System.out.println("Press 0 to exit!");
         int choose=scan.nextInt();
 
@@ -110,10 +111,21 @@ public class Linked_List {
                             System.out.println("Size of the Linked List after deleting the Last element");
                             System.out.println(customLL.size());
                             break;
+                        case 3:
+                            System.out.println("Delete at the given index");
+                            System.out.println("Enter the index where you want to delete");
+                            int index = scan.nextInt();
+                            customLL.deleteAtIndex(index);
+
+                            customLL.display();
+
+                            System.out.println("Size of the Linked List after deleting at the given index");
+                            System.out.println(customLL.size());
+                            break;
                         default:
                             System.out.println("Please press the numbers given in the options only");
                     }
-                    if(customLL.size()!=0) {
+                    if(customLL.size()!=0 && check) {
                         System.out.println("Enter your choice again");
                         choose = scan.nextInt();
                     }
