@@ -34,6 +34,21 @@ public class ll {
 
     }
 
+    // Delete at the Beginning
+    public void deleteBegin(){
+        if(tail == null || head == null) {
+            System.out.println("Can not delete as No element was found!");
+            return;
+        }else {
+            Node temp = head;
+                if (temp.next != null)
+                    head = temp.next;
+                else
+                    head = null;
+            }
+            size -= 1;
+    }
+
     // Return Size of the Linked List
     public int size(){
         return this.size;
@@ -50,6 +65,22 @@ public class ll {
         }
         tail=node;
         size+=1;
+    }
+
+    // Delete at the End
+    public void deleteEnd(){
+        if(tail == null || head == null) {
+            System.out.println("Can not delete as No element was found!");
+            return;
+        }else {
+            Node temp = head;
+            while(temp.next!=tail){
+                temp=temp.next;
+            }
+            tail=temp;
+            tail.next=null;
+        }
+        size -= 1;
     }
 
     // Display the linked List

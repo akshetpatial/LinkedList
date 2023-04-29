@@ -75,5 +75,21 @@ public class Linked_List {
         System.out.println("Size of the Linked List after adding an element at the given Index");
         System.out.println(customLL.size());
 
+        System.out.println("Delete the First Element");
+        customLL.deleteBegin();
+
+        customLL.display();
+
+        System.out.println("Size of the Linked List after deleting the First element");
+        System.out.println(customLL.size());
+
+        System.out.println("Delete the Last Element");
+        customLL.deleteEnd();
+
+        customLL.display();
+
+        System.out.println("Size of the Linked List after deleting the Last element");
+        System.out.println(customLL.size());
+
     }
 }
