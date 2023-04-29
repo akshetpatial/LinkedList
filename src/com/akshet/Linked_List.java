@@ -75,21 +75,50 @@ public class Linked_List {
         System.out.println("Size of the Linked List after adding an element at the given Index");
         System.out.println(customLL.size());
 
-        System.out.println("Delete the First Element");
-        customLL.deleteBegin();
 
-        customLL.display();
+        System.out.println("Options");
+        System.out.println("Press 1 to delete at the beginning! ");
+        System.out.println("Press 2 to delete at the end!");
+        System.out.println("Press 0 to exit!");
+        int choose=scan.nextInt();
 
-        System.out.println("Size of the Linked List after deleting the First element");
-        System.out.println(customLL.size());
+        boolean check = true;
+            while(check) {
+                if(customLL.size()==0)
+                    check = false;
+                else {
+                    switch (choose) {
+                        case 0:
+                            System.out.println("Exit! Bye");
+                            check = false;
+                            break;
+                        case 1:
+                            System.out.println("Delete the First Element");
+                            customLL.deleteBegin();
 
-        System.out.println("Delete the Last Element");
-        customLL.deleteEnd();
+                            customLL.display();
 
-        customLL.display();
+                            System.out.println("Size of the Linked List after deleting the First element");
+                            System.out.println(customLL.size());
+                            break;
+                        case 2:
+                            System.out.println("Delete the Last Element");
+                            customLL.deleteEnd();
 
-        System.out.println("Size of the Linked List after deleting the Last element");
-        System.out.println(customLL.size());
+                            customLL.display();
+
+                            System.out.println("Size of the Linked List after deleting the Last element");
+                            System.out.println(customLL.size());
+                            break;
+                        default:
+                            System.out.println("Please press the numbers given in the options only");
+                    }
+                    if(customLL.size()!=0) {
+                        System.out.println("Enter your choice again");
+                        choose = scan.nextInt();
+                    }
+                }
+            }
 
     }
 }

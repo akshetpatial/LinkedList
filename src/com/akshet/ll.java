@@ -74,11 +74,14 @@ public class ll {
             return;
         }else {
             Node temp = head;
-            while(temp.next!=tail){
-                temp=temp.next;
-            }
-            tail=temp;
-            tail.next=null;
+            if (temp.next != null) {
+                while (temp.next != tail) {
+                    temp = temp.next;
+                }
+                tail = temp;
+                tail.next = null;
+            }else
+                head=null;
         }
         size -= 1;
     }
