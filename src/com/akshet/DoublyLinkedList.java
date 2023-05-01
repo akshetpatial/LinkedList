@@ -9,5 +9,10 @@ public class DoublyLinkedList {
         // In Java LinkedList can also be used a doubly Linked List
         List<Integer> doubleLL= new LinkedList<>();
 
+
+
+        DoublyLL dl = new DoublyLL();
+        dl.display();
+
     }
 }
