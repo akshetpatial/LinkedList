@@ -6,7 +6,7 @@ import java.util.Scanner;
  class CustomLL<Integer> extends LinkedList<Integer>{
 
      public void addElement(Integer index, Integer value) {
-         
+
      }
  }
 
