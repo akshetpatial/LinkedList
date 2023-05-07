@@ -12,14 +12,19 @@ public class ll {
         this.size=0;
     }
 
-  /*  public Node lastElement(){
-        Node temp = head;
-        while (temp!=null){
-            temp=temp.next;
-        }
-        return temp;
+    // Created the getHead setter to get the head outside this class
+    public Node getHead() {
+        return head;
     }
-*/
+
+    /*  public Node lastElement(){
+            Node temp = head;
+            while (temp!=null){
+                temp=temp.next;
+            }
+            return temp;
+        }
+    */
     // Add at the Beginning
     public void addBegin(int value){
         Node node = new Node(value);
