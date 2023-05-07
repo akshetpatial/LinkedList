@@ -12,7 +12,7 @@ public class ll {
         this.size=0;
     }
 
-    // Created the getHead setter to get the head outside this class
+    // Created the getHead getter to get the head outside this class
     public Node getHead() {
         return head;
     }
@@ -229,6 +229,10 @@ public class ll {
             this.next = next;
         }
 
+        // Created the getNext getter
+        public Node getNext() {
+            return next;
+        }
     }
 
 }
