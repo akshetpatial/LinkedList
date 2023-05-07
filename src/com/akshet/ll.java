@@ -233,6 +233,11 @@ public class ll {
         public Node getNext() {
             return next;
         }
+
+        // Created the setNext Setter
+        public void setNext(Node next){
+            this.next = next;
+        }
     }
 
 }
