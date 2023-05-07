@@ -80,6 +80,7 @@ public class Linked_List {
         System.out.println("Press 1 to delete at the beginning! ");
         System.out.println("Press 2 to delete at the end!");
         System.out.println("Press 3 to delete at the given index!");
+        System.out.println("Press 4 to Reverse a Linked List");
         System.out.println("Press 0 to exit!");
         int choose=scan.nextInt();
 
@@ -121,6 +122,12 @@ public class Linked_List {
 
                             System.out.println("Size of the Linked List after deleting at the given index");
                             System.out.println(customLL.size());
+                            break;
+                        case 4:
+                            System.out.println("Reverse a Linked List");
+                            customLL.reverse();
+                            customLL.display();
+                            System.out.println("size: "+customLL.size());
                             break;
                         default:
                             System.out.println("Please press the numbers given in the options only");

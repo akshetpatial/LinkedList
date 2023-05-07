@@ -13,20 +13,6 @@ public class DoublyLL {
     public int size(){
         return this.size;
     }
-    //Adding at the End
-    public void addEnd(int value){
-        Node newNode = new Node(value);
-        if(head==null) {
-            head = newNode;
-            tail=head;
-        }else{
-            newNode.prev=tail;
-            tail.next=newNode;
-            tail=newNode;
-        }
-        size+=1;
-    }
-
 
     //Displaying the List
     public void display(){
@@ -40,6 +26,20 @@ public class DoublyLL {
             }
             System.out.print("End\n");
         }
+    }
+
+    //Adding at the End
+    public void addEnd(int value){
+        Node newNode = new Node(value);
+        if(head==null) {
+            head = newNode;
+            tail=head;
+        }else{
+            newNode.prev=tail;
+            tail.next=newNode;
+            tail=newNode;
+        }
+        size+=1;
     }
 
     //Adding at the Begin

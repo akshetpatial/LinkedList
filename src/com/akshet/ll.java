@@ -157,11 +157,42 @@ public class ll {
         }
     }
 
+    public void reverse() {
+        if(size()==0){
+            System.out.println("The List is Null!");
+            return;
+        }
+        if(size()==1) {
+            return;
+        }
+        Node from = head;
+        Node to = tail;
+        int size =1;
+        while(size<=size()/2){
+            swap(from,to);
+            from=from.next;
+            Node temp =from;
+            if(size!=size()/2) {
+                while (temp.next != to) {
+                    temp = temp.next;
+                }
+                to = temp;
+            }
+            size++;
+        }
+    }
+
+    private void swap(Node from, Node to) {
+        int temp = from.value;
+        from.value=to.value;
+        to.value=temp;
+    }
+
 
     // Making a particular node class
     // Most of the time inner class can be treated as Static
     private static class Node{
-        private final int value;
+        private int value;
         private Node next;
 
         public Node(int value) {
