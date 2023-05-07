@@ -157,7 +157,8 @@ public class ll {
         }
     }
 
-    public void reverse() {
+    // First Method
+  /*  public void reverse() {
         if(size()==0){
             System.out.println("The List is Null!");
             return;
@@ -180,6 +181,22 @@ public class ll {
             }
             size++;
         }
+    }*/
+
+    //Second Method
+    // Without Using tail
+    public void reverse(){
+        Node current = head;
+        Node next;
+        Node prev= null;
+
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
     }
 
     private void swap(Node from, Node to) {
