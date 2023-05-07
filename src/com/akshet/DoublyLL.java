@@ -42,6 +42,20 @@ public class DoublyLL {
         }
     }
 
+    //Adding at the Begin
+    public void addBegin(int value){
+        Node newNode = new Node(value);
+        if(head==null) {
+            head = newNode;
+            tail=head;
+        }else{
+            newNode.next=head;
+            head.prev=newNode;
+            head=newNode;
+        }
+        size+=1;
+    }
+
     private static class Node{
         private Node prev;
         private final int value;

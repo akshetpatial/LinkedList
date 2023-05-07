@@ -46,6 +46,17 @@ public class DoublyLinkedList {
                         doubleLLCus.display();
                         System.out.println("size: "+doubleLLCus.size());
                         break;
+                    case 2:
+                        System.out.println("How many times you want to Add Element at the Beginning");
+                        int count_1 = scan.nextInt();
+                        System.out.println("Enter the value/values you want to Add");
+                        for (int i =0; i<count_1;i++) {
+                            int val = scan.nextInt();
+                            doubleLLCus.addBegin(val);
+                        }
+                        doubleLLCus.display();
+                        System.out.println("size: "+doubleLLCus.size());
+                        break;
                     default:
                         System.out.println("Please Enter from the Given options only");
                 }
