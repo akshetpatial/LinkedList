@@ -130,9 +130,38 @@ public class DoublyLL {
             size-=1;
         }
     }
+
+    // Reverse a Linked List
+    public void reverse() {
+        if(size==0){
+            System.out.println("The List is Null!");
+            return;
+        }
+        if(size()==1) {
+            return;
+        }
+            Node from = head;
+            Node to = tail;
+            int size =1;
+       //    This will not work for Even elements in the List
+        //     while (from != to){
+                while (size<=size()/2){
+                swap(from,to);
+                from=from.next;
+                to=to.prev;
+                size++;
+        }
+    }
+
+    private void swap(Node from, Node to) {
+        int temp = from.value;
+        from.value=to.value;
+        to.value=temp;
+    }
+
     private static class Node{
         private Node prev;
-        private final int value;
+        private int value;
         private Node next;
 
         Node(int value){
