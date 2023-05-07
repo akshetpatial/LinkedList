@@ -57,6 +57,36 @@ public class DoublyLinkedList {
                         doubleLLCus.display();
                         System.out.println("size: "+doubleLLCus.size());
                         break;
+                    case 3:
+                    System.out.println("Add at the given index");
+                    System.out.println("Enter the index where you want to Add");
+                    int index = scan.nextInt();
+                    System.out.println("Enter the Value");
+                    int val = scan.nextInt();
+                        doubleLLCus.AddAtIndex(index,val);
+                        doubleLLCus.display();
+                        System.out.println("size: "+doubleLLCus.size());
+                        break;
+                    case 4:
+                        System.out.println("Delete at the End");
+                            doubleLLCus.deleteEnd();
+                        doubleLLCus.display();
+                        System.out.println("size: "+doubleLLCus.size());
+                        break;
+                    case 5:
+                        System.out.println("Delete at the Beginning");
+                        doubleLLCus.deleteBegin();
+                        doubleLLCus.display();
+                        System.out.println("size: "+doubleLLCus.size());
+                        break;
+                    case 6:
+                        System.out.println("Delete at a given index");
+                        System.out.println("Enter the index where you want to Delete");
+                        int index_1 = scan.nextInt();
+                        doubleLLCus.deleteAtIndex(index_1);
+                        doubleLLCus.display();
+                        System.out.println("size: "+doubleLLCus.size());
+                        break;
                     default:
                         System.out.println("Please Enter from the Given options only");
                 }

@@ -56,6 +56,80 @@ public class DoublyLL {
         size+=1;
     }
 
+    //Add at the Given Index
+    public void AddAtIndex(int index, int value) {
+        Node newNode = new Node(value);
+        if(index==0)
+            addBegin(value);
+        else if (index==size()-1)
+            addEnd(value);
+        else if(index>=size())
+            System.out.println("Not Possible!");
+        else{
+            Node temp = head;
+            int count=1;
+            while(count<index){
+                temp=temp.next;
+                count++;
+            }
+            newNode.next=temp.next;
+            temp.next.prev=newNode;
+            temp.next=newNode;
+            newNode.prev=temp;
+            size+=1;
+        }
+    }
+
+    public void deleteEnd() {
+        if(head==null || tail==null)
+            System.out.println("Not Possible as the List is empty");
+        else{
+            if(size()==1){
+                head=null;
+                tail=null;
+            }else{
+                tail=tail.prev;
+                tail.next=null;
+            }
+            size-=1;
+        }
+    }
+
+    public void deleteBegin() {
+        if(head==null || tail==null)
+            System.out.println("Not Possible as the List is empty");
+        else{
+            if(size()==1){
+                head=null;
+                tail=null;
+            }else{
+               head=head.next;
+               head.prev=null;
+            }
+            size-=1;
+        }
+    }
+
+    public void deleteAtIndex(int index) {
+        if(index==0)
+            deleteBegin();
+        else if (index==size()-1)
+            deleteEnd();
+        else if(index>=size())
+            System.out.println("Not Possible!");
+        else{
+            Node temp = head;
+            int count=1;
+            while(count<index){
+                temp=temp.next;
+                count++;
+            }
+            Node nextNode = temp.next.next;
+            temp.next=nextNode;
+            nextNode.prev=temp;
+            size-=1;
+        }
+    }
     private static class Node{
         private Node prev;
         private final int value;
