@@ -213,7 +213,10 @@ public class ll {
 
     // Making a particular node class
     // Most of the time inner class can be treated as Static
-    private static class Node{
+
+    // Changing the access modifier to public
+    // private static class Node{
+       public static class Node{
         private int value;
         private Node next;
 
