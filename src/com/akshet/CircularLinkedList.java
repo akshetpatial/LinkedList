@@ -14,7 +14,6 @@ public class CircularLinkedList {
         System.out.println("Press 4 to Delete at the End");
         System.out.println("Press 5 to Delete at the Beginning");
         System.out.println("Press 6 to Delete at a given index");
-        System.out.println("Press 7 to Reverse a Linked List");
         System.out.println("Press 0 to Exit");
         System.out.println("Enter your choice");
         Scanner scan = new Scanner(System.in);
@@ -77,12 +76,6 @@ public class CircularLinkedList {
                     System.out.println("Enter the index where you want to Delete");
                     int index_1 = scan.nextInt();
                     CircularLLCus.deleteAtIndex(index_1);
-                    CircularLLCus.display();
-                    System.out.println("size: "+CircularLLCus.size());
-                    break;
-                case 7:
-                    System.out.println("Reverse a Linked List");
-                    CircularLLCus.reverse();
                     CircularLLCus.display();
                     System.out.println("size: "+CircularLLCus.size());
                     break;
