@@ -17,6 +17,11 @@ public class ll {
         return head;
     }
 
+    // Created the setHead setter to get the head outside this class
+    public void setHead(Node head) {
+        this.head=head;
+    }
+
     /*  public Node lastElement(){
             Node temp = head;
             while (temp!=null){
