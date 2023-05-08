@@ -4,8 +4,8 @@ import java.util.Scanner;
 
  class CustomLL extends ll{
 
-      // Using Recursion
-     public void addElement(int index, int value) {
+     // Using Recursion
+     /*public void addElement(int index, int value) {
          Node temp = getHead();
          if(index==0) {
              addBegin(value);
@@ -29,7 +29,26 @@ import java.util.Scanner;
              }
              helperFunction(index, value, temp.getNext(), count + 1);
          }
+     }*/
+
+     // Another Way
+     public void addElement(int index, int value) {
+         Node temp = getHead();
+         // Set the Head
+         setHead(helperFunction(index,value,temp));
+
      }
+
+     private Node helperFunction(int index, int value, Node temp) {
+         if(index==0){
+             Node newNode = new Node(value);
+             newNode.setNext(temp);
+             return newNode;
+         }
+         temp.setNext(helperFunction(index-1,value,temp.getNext()));
+         return temp;
+     }
+
 
  }
 
