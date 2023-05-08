@@ -1,29 +1,49 @@
 package com.akshet;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
- class CustomLL<Integer> extends LinkedList<Integer>{
+ class CustomLL extends ll{
 
-     public void addElement(Integer index, Integer value) {
+      // Using Recursion
+     public void addElement(int index, int value) {
+         Node temp = getHead();
+         if(index==0) {
+             addBegin(value);
+             return;
+         }
 
+         helperFunction(index,value,temp,1);
      }
+
+     private void helperFunction(int index, int value, Node temp, int count) {
+         Node newNode = new Node(value);
+         if(temp==null)
+             System.out.println("Not Possible as index is put of Bound!");
+         else {
+             if (count > index) {
+                 return;
+             }
+             if (count == index) {
+                 newNode.setNext(temp.getNext());
+                 temp.setNext(newNode);
+             }
+             helperFunction(index, value, temp.getNext(), count + 1);
+         }
+     }
+
  }
 
 public class InsertUsingRecursion {
     public static void main(String[] args) {
 
-        CustomLL<Integer> linkedList = new CustomLL<>();
+        CustomLL linkedList = new CustomLL();
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter 5 elements of the List");
         for( int i=0;i<5;i++){
-            linkedList.add(scan.nextInt());
+            linkedList.addEnd(scan.nextInt());
         }
-
         //Display
-        for(int ele : linkedList)
-            System.out.print(ele+" -> ");
-        System.out.println("End");
+         linkedList.display();
 
         System.out.println("Enter the Element you want to Enter at the Given Index");
         System.out.println("Enter the Index: ");
@@ -34,9 +54,7 @@ public class InsertUsingRecursion {
         linkedList.addElement(index,value);
 
         //Display
-        for(int ele : linkedList)
-            System.out.print(ele+" -> ");
-        System.out.println("End");
+        linkedList.display();
 
     }
 }
