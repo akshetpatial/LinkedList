@@ -41,9 +41,34 @@ public class mergeTwoSortedList {
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2){
 
-        
+        ListNode newListHead = new ListNode();
+        ListNode tailNewList = newListHead;
+        while(list1!=null && list2!=null){
+            if(list1.val<= list2.val){
+                tailNewList.next=list1;
+                list1=list1.next;
+            }else{
+                tailNewList.next=list2;
+                list2=list2.next;
+            }
+            tailNewList=tailNewList.next;
+        }
+        if(list1!=null){
+            while(list1!=null){
+                tailNewList.next=list1;
+                list1=list1.next;
+                tailNewList=tailNewList.next;
+            }
+        }
+        if(list2!=null){
+            while(list2!=null) {
+                tailNewList.next = list2;
+                list2 = list2.next;
+                tailNewList = tailNewList.next;
+            }
+        }
 
-        return null;
+        return newListHead.next;
     }
 
     public static void main(String[] args) {
@@ -69,8 +94,11 @@ public class mergeTwoSortedList {
         list2.display();
 
         ListNode listNode =   mergeTwoLists(list1.head,list2.head);
-        System.out.println("Merge List : "+listNode);
-
-
+        System.out.println("Merge List : ");
+        while (listNode!=null){
+            System.out.print(listNode.val+"->");
+            listNode=listNode.next;
+        }
+        System.out.println("End");
     }
 }
