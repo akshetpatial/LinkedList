@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class SortList {
 
+    // This is Bubble Sort hence it may exceed time limit
     private static ListNode sortedList(ListNode head) {
         ListNode first = head;
         ListNode second = head;
