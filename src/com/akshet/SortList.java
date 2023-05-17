@@ -6,18 +6,27 @@ import java.util.Scanner;
 public class SortList {
 
     private static ListNode sortedList(ListNode head) {
-        ListNode temp = head;
         ListNode first = head;
         ListNode second = head;
-        swap(first.val, second.val);
+        ListNode temp3=null;
 
-        return temp;
+        do {
+            while (first.next != temp3) {
+                if (first.val > first.next.val)
+                    swap(first, first.next);
+                first = first.next;
+            }
+         temp3=first;
+         first= head;
+        }while(second.next!=temp3);
+
+        return head;
     }
 
-    private static void swap(int from, int to) {
-        int temp = from;
-        from = to;
-        to=temp;
+    private static void swap(ListNode from, ListNode to) {
+        int temp = from.val;
+        from.val=to.val;
+        to.val=temp;
     }
 
     public static void main(String[] args) {
