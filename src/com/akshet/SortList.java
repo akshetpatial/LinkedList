@@ -54,6 +54,15 @@ public class SortList {
             slow=slow.next;
         }
         return slow;*/
+        ListNode newList = null;
+        while(head!=null && head.next!=null){
+            newList = (newList==null)?head:newList.next;
+            head=head.next.next;
+        }
+        ListNode mid = newList.next;
+        // This is important to break the list
+        newList.next=null;
+        return mid;
     }
 
     private static ListNode Merge(ListNode list1, ListNode list2) {
@@ -73,7 +82,9 @@ public class SortList {
             tail= tail.next;
         }
 
-        if(list2!=null){
+        // We can use this or we can also use a sort cut we no need to iterate the remaining list as they all are connected
+        // so we can just use next to point to the remaining list.
+        /*if(list2!=null){
             while(list2!=null){
                 tail.next=list2;
                 list2=list2.next;
@@ -86,7 +97,9 @@ public class SortList {
                 list1=list1.next;
                 tail=tail.next;
             }
-        }
+        }*/
+        tail.next=(list1!=null)?list1:list2;
+
     return newList.next;
     }
 
