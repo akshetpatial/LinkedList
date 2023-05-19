@@ -3,9 +3,22 @@ package com.akshet;
 import java.util.Scanner;
 
 public class ReverseLLRecur {
+    private static ListNode reverseListRecur(ListNode head, int size) {
+        if(size<2)
+            return head;
 
-    private static ListNode reverseList(ListNode head) {
-        
+        if(head.next==null)
+            return head;
+
+
+        ListNode prev = reverseListRecur(head.next, size);
+        ListNode temp = prev;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next = head;
+        head.next=null;
+        return prev;
     }
 
     public static void main(String[] args){
@@ -22,12 +35,10 @@ public class ReverseLLRecur {
 
         System.out.println("Reversed list: ");
 
-        ListNode reverseList = reverseList(list1.head);
-
-        // This is used to set the head of the sortedList
-        // using Bubble Sort
+        ListNode reverseList = reverseListRecur(list1.head,size_1);
         reverseList.head=reverseList;
         reverseList.display();
+
     }
 
 }
