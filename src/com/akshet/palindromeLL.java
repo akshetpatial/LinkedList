@@ -26,9 +26,34 @@ public class palindromeLL {
         return true;*/
 
         // Second Approach using fast and slow pointer
+        if(head.next==null)
+            return true;
 
-        
+        ListNode temp = head;
+        ListNode slow = head;
+        ListNode fast = head;
 
+        // to handle the previous element
+        ListNode prev = null;
+        while(fast!=null && fast.next!=null){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode rev = reverse(slow);
+        // This line is important to maintain the continuity
+        prev.next=rev;
+
+        ListNode temp1= rev;
+
+        while(temp!=temp1){
+            if(temp.val!=rev.val)
+                return false;
+            rev= rev.next;
+            temp=temp.next;
+        }
+    return true;
        /* // My Approach: Pretty bad approach
 
         ListNode temp = head;
@@ -55,7 +80,7 @@ public class palindromeLL {
         return true;*/
     }
 
-    /*public static ListNode reverse(ListNode head){
+    public static ListNode reverse(ListNode head){
         ListNode prev = null;
         ListNode current = head;
         ListNode next;
@@ -67,7 +92,7 @@ public class palindromeLL {
             current = next;
         }
         return prev;
-    }*/
+    }
 
     public static void main(String[] args) {
         ListNode list1 = new ListNode();
