@@ -1,21 +1,45 @@
 package com.akshet;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class reorderList {
 
     public static ListNode reorderLists(ListNode head){
 
-        ListNode newList = newListReverse(head,true);
-        ListNode unChangedList = newListReverse(head,false);
+        /*ListNode newList = newListReverse(head,true);
+        ListNode unChangedList = newListReverse(head,false);*/
 
-        newList.display();
-        unChangedList.display();
+        // Make a new ArrayList
 
-        return newList;
+        ArrayList<Integer> list = new ArrayList<>();
+        ListNode temp= head;
+        ListNode start = head;
+        while(temp!=null){
+            list.add(temp.val);
+            temp=temp.next;
+        }
+        int size = list.size()-1;
+        int i = size;
+        ListNode newList = new ListNode();
+        ListNode tail = newList;
+        int count =0;
+        while(count<=size){
+            if(count%2==0){
+                tail.next=start;
+                start=start.next;
+            }else{
+                tail.next= new ListNode(list.get(i));
+                i--;
+            }
+            count++;
+            tail=tail.next;
+        }
+        tail.next=null;
+    return newList.next;
     }
 
-    private static ListNode newListReverse(ListNode head, boolean check) {
+    /*private static ListNode newListReverse(ListNode head, boolean check) {
         if(check) {
             ListNode newList = new ListNode();
             ListNode temp = newList;
@@ -31,8 +55,10 @@ public class reorderList {
                 newList.next = prev;
                 newList= newList.next;
             }
-          return temp.next;
+          return temp;
         }else{
+            ListNode newList = new ListNode();
+            ListNode temp = newList;
             ListNode prev = null;
             ListNode next;
             ListNode current = head;
@@ -41,10 +67,13 @@ public class reorderList {
                 current.next = prev;
                 prev = current;
                 current = next;
+                // making a newList that will contain nodes in reverse
+                newList.next = prev;
+                newList= newList.next;
             }
-            return prev;
+            return temp;
         }
-    }
+    }*/
 
 
     public static void main(String[] args) {
