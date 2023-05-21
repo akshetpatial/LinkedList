@@ -3,6 +3,7 @@ package com.akshet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//https://leetcode.com/problems/palindrome-linked-list/
 public class palindromeLL {
 
     public static boolean isPalindrome(ListNode head) {
