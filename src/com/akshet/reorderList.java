@@ -47,7 +47,23 @@ public class reorderList {
             fast = fast.next.next;
         }
 
-        ListNode rev = reverseMidList(slow);
+        // Minor changes
+        // ListNode rev = reverseMidList(slow);
+        ListNode rev = reverseMidList(slow.next);
+        slow.next=null;
+
+        // Or We can also use this
+        while(temp!=null && rev!=null){
+            ListNode head1 = temp.next;
+            ListNode head2 = rev.next;
+            rev.next = head1;
+            temp.next = rev;
+            temp = head1;
+            rev = head2;
+        }
+        return head;
+
+       /* ListNode rev = reverseMidList(slow);
         ListNode newList = new ListNode();
         ListNode tail = newList;
         int count=0;
@@ -63,7 +79,7 @@ public class reorderList {
             tail=tail.next;
         }
         tail.next=rev;
-        return  newList.next;
+        return  newList.next;*/
     }
 
     private static ListNode reverseMidList(ListNode head) {
