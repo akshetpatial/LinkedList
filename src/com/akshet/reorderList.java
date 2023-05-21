@@ -10,9 +10,9 @@ public class reorderList {
         /*ListNode newList = newListReverse(head,true);
         ListNode unChangedList = newListReverse(head,false);*/
 
-        // Make a new ArrayList
+        //Approach one:  Make a new ArrayList
 
-        ArrayList<Integer> list = new ArrayList<>();
+        /*ArrayList<Integer> list = new ArrayList<>();
         ListNode temp= head;
         ListNode start = head;
         while(temp!=null){
@@ -36,7 +36,48 @@ public class reorderList {
             tail=tail.next;
         }
         tail.next=null;
-    return newList.next;
+    return newList.next;*/
+
+        // Approach Two using slow and Fast pointer
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode temp = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode rev = reverseMidList(slow);
+        ListNode newList = new ListNode();
+        ListNode tail = newList;
+        int count=0;
+        while(temp!=slow){
+            if(count%2==0) {
+                tail.next = temp;
+                temp = temp.next;
+            }else{
+                tail.next = rev;
+                rev = rev.next;
+            }
+            count++;
+            tail=tail.next;
+        }
+        tail.next=rev;
+        return  newList.next;
+    }
+
+    private static ListNode reverseMidList(ListNode head) {
+        ListNode prev = null;
+        ListNode next;
+        ListNode current = head;
+
+        while(current!=null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
     }
 
     /*private static ListNode newListReverse(ListNode head, boolean check) {
