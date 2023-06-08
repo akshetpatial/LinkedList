@@ -6,24 +6,55 @@ import java.util.Scanner;
 //https://leetcode.com/problems/reverse-nodes-in-k-group/
 public class reverseNodesInKGroup {
 
+    public static int size(ListNode head){
+        if(head==null){
+            return 0;
+        }
+        if(head.next == null){
+            return 1;
+        }
+        int p =0;
+        ListNode current = head;
+        while(current != null){
+            current = current.next;
+            p++;
+        }
+        return p;
+    }
+
     public static ListNode reverseKNode(ListNode head, int k){
 
 //        ListNode temp = head;
 //
 //        while(temp!=null)
+            if(head == null){
+                return null;
+            }
+            if(head.next ==null){
+                return head;
+            }
 
-        ArrayList<Integer> list = new ArrayList<>();
-
-        ListNode temp = head;
-        ListNode temp1 = head;
-
-        while(temp!=null){
-            list.add(temp.val);
-            temp=temp.next;
+            ListNode pre = null;
+            ListNode curr = head;
+            ListNode Next= null;
+            int count = 0;
+            while( curr!= null && count<k){
+                Next = curr.next;
+                curr.next = pre;
+                pre=  curr;
+                curr = Next;
+                count++;
+            }
+            if(Next!=null && size(Next)>=k){
+                head.next = reverseKNode(Next,k);
+            }
+            else{
+                head.next = Next;
+            }
+            return pre;
         }
 
-        // New Approach
-
+        // Previous Approach
 
         // Pretty Bad Approach
         /*ListNode newList = new ListNode();
@@ -72,8 +103,7 @@ public class reverseNodesInKGroup {
 //            k--;
 //        }
        // ListNode rev = reverse(start,end);
-        return null;
-    }
+
 
     private static ListNode reverse(ListNode start, ListNode end) {
         ListNode current = start;
